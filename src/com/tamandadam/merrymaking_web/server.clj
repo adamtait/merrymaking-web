@@ -42,6 +42,5 @@
   (println "Merrymaking-Web is shutting down"))
 
 (def ring-app
-  (let [handlers (started-handlers)]
-    (compojure/site handlers)))
+  (started-handlers))
 
