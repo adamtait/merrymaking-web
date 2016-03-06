@@ -1,54 +1,47 @@
 (ns com.tamandadam.merrymaking-web.server
-  (:gen-class) ; for -main method in uberjar
-  (:require [io.pedestal.http :as server]
-            [com.tamandadam.merrymaking-web.service :as service]))
+  (:gen-class :extends javax.servlet.http.HttpServlet) ; for -main method in uberjar
+  (:require [com.stuartsierra.component :as component]
+            [com.tamandadam.merrymaking-web.handlers :as handlers]
+            [com.tamandadam.merrymaking-web.handlers.base :as base]
+            [compojure.handler :as compojure]))
 
-;; This is an adapted service map, that can be started and stopped
-;; From the REPL you can call server/start and server/stop on this service
-(defonce runnable-service (server/create-server service/service))
+            
+(defn new-system []
+  (component/system-map
+   ::handlers (handlers/new-component)
+   ::base (base/new-component)))
 
-(defn run-dev
-  "The entry-point for 'lein run-dev'"
-  [& args]
-  (println "\nCreating your [DEV] server...")
-  (-> service/service ;; start with production configuration
-      (merge {:env :dev
-              ;; do not block thread that starts web server
-              ::server/join? false
-              ;; Routes can be a function that resolve routes,
-              ;;  we can use this to set the routes to be reloadable
-              ::server/routes #(deref #'service/routes)
-              ;; all origins are allowed in dev mode
-              ::server/allowed-origins {:creds true :allowed-origins (constantly true)}})
-      ;; Wire up interceptor chains
-      server/default-interceptors
-      server/dev-interceptors
-      server/create-server
-      server/start))
+(def system nil)
 
-(defn -main
-  "The entry-point for 'lein run'"
-  [& args]
-  (println "\nCreating your server...")
-  (server/start runnable-service))
+(defn init []
+  (alter-var-root #'system
+                  (constantly
+                   (new-system))))
 
+(defn start []
+  (alter-var-root #'system component/start))
 
-;; If you package the service up as a WAR,
-;; some form of the following function sections is required (for io.pedestal.servlet.ClojureVarServlet).
+(defn stop []
+  (alter-var-root #'system component/stop))
 
-(defonce servlet  (atom nil))
+(defn started-handlers []
+  (init)
+  (start)
+  
+  (:compiled-routes
+   (::handlers system)))
 
-(defn servlet-init
-  [_ config]
-  ;; Initialize your app here.
-  (reset! servlet  (server/servlet-init service/service nil)))
+;; ------------------------------------------------
+;; ## Ring Handlers (used by Google App Engine)
+;;   might replace the need for servlet handlers
 
-(defn servlet-service
-  [_ request response]
-  (server/servlet-service @servlet request response))
+(defn ring-init []
+  (println "Merrymaking-Web is starting"))
 
-(defn servlet-destroy
-  [_]
-  (server/servlet-destroy @servlet)
-  (reset! servlet nil))
+(defn ring-destroy []
+  (println "Merrymaking-Web is shutting down"))
+
+(def ring-app
+  (let [handlers (started-handlers)]
+    (compojure/site handlers)))
 

@@ -1,0 +1,55 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; # ROUTES DEFINITION
+;; ## README FIRST
+
+;; this clojure.edn format file contains the list of routes for the
+;; app. This file is important because connects the HTTP methods &
+;; paths to implementation of the handler method that services the
+;; route.
+
+;; Here is a description of the format for the routes.  The routes are
+;; divided up into a set of components. Each component services it's
+;; own set of routes and has it's own set of handler implementations.
+
+
+;; ## Component Definition
+;; At the highest level is the Component definition.
+
+;; {:component "a keyword referencing the component in the system map. Required"
+;;  :namespace "a symbol referencing the namespace where the actions are defined"
+;;  :base-path "a string to pre-pend to all route paths. Optional"
+;;  :path-params "a colletion of parameter definitions, used in the :base-path. Optional"
+;;  :routes "a collection of route definitions for this component. Required"}
+
+
+;; ## Path Parameter definition
+;; Path parameters can be included either in the Component OR Route definition.
+
+;; {:name "a string to match within the route's path.
+;;          If the path is [/user/:id] then the name is [id]"
+;;  :type "future use for parameter type validation. Optional"}
+
+
+;; ## Route definition
+;; Route definitions describe the relation between path & handler function.
+
+;; {:action "a keyword for the handler function in the Component's
+;;           :namespace. Required"
+;;  :method "a keyword for the HTTP method. Might include :get, :post,
+;;           :put, :delete, :head"
+;;  :path "a templated string for HTTP path. It might be prepended by
+;;         the Component's :base-path. Optional; if not included a REST-ish
+;;         string of the :action will be appended to the :base-path"
+;;  :path-params "a collection of Path Parameter definitions, related
+;;                to any templated path-params in the :path. Optional"}
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; # ROUTES for Merrymaking-Web
+
+[{:component :com.tamandadam.merrymaking-web.server/base
+  :namespace com.tamandadam.merrymaking-web.handlers.base
+  :base-path ""
+  :routes [{:action :api
+            :method :get}]}]

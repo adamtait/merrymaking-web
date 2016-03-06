@@ -6,13 +6,11 @@
 
 
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [io.pedestal/pedestal.service "0.4.1"]
 
-                 ;; Remove this line and uncomment one of the next lines to
-                 ;; use Immutant or Tomcat instead of Jetty:
-                 ;; [io.pedestal/pedestal.jetty "0.4.0"]
-                 ;; [io.pedestal/pedestal.immutant "0.4.1"]
-                 [io.pedestal/pedestal.tomcat "0.4.1"]
+                 [com.stuartsierra/component "0.2.1"]
+                 [compojure "1.1.8"]
+                 ;; [ring/ring-core "1.4.0"]
+                 [javax.servlet/servlet-api "2.5"]
 
                  [ch.qos.logback/logback-classic "1.1.3" :exclusions [org.slf4j/slf4j-api]]
                  [org.slf4j/jul-to-slf4j "1.7.12"]
@@ -23,17 +21,23 @@
   :javac-options ["-target" "1.7" "-source" "1.7" "-Xlint:-options"]
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]
-  :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "com.tamandadam.merrymaking-web.server/run-dev"]}
-                   :dependencies [[io.pedestal/pedestal.jetty "0.4.0"]
-                                  [io.pedestal/pedestal.service-tools "0.4.1"]]}
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]
+                                  [http-kit "2.1.16"]]
+                   :aliases {"run-dev" ["trampoline" "run" "-m" "user/run-dev"]}}
+             
+             :production
+             {:ring
+              {:open-browser? false
+               :stacktraces? true
+               :auto-reload? false}}
+             
              :uberjar {:aot [com.tamandadam.merrymaking-web.server]}}
   :main ^{:skip-aot true} com.tamandadam.merrymaking-web.server
 
-  
-  :plugins [[ohpauleez/lein-pedestal "0.1.0-adam10"]
-            [lein-pprint "1.1.1"]]
-
-  :pedestal
-  {:server-ns "com.tamandadam.merrymaking-web.server"
-   :include-compile-path false})
+  :plugins [[lein-ring "0.9.7"]]
+  :ring {
+         :handler com.tamandadam.merrymaking-web.server/ring-app
+         :init com.tamandadam.merrymaking-web.server/ring-init
+         :destroy com.tamandadam.merrymaking-web.server/ring-destroy})
 

@@ -2,7 +2,7 @@
 
 ## build the war
 lein clean
-lein pedestal uberwar
+lein ring uberwar
 
 
 
