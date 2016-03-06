@@ -1,0 +1,13 @@
+application: merrymaking-web
+version: first
+
+api_version: 1
+
+runtime: java
+vm: true
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: IGNORED
+  secure: always
