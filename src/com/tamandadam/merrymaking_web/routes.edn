@@ -51,5 +51,6 @@
 [{:component :com.tamandadam.merrymaking-web.server/base
   :namespace com.tamandadam.merrymaking-web.handlers.base
   :base-path ""
-  :routes [{:action :api
-            :method :get}]}]
+  :routes [{:action :index
+            :method :get
+            :path ""}]}]

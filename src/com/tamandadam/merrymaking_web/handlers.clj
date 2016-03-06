@@ -11,36 +11,49 @@
 (defn load-routes []
   (clojure.edn/read-string (slurp (io/resource routes-file-name))))
 
-(defn- build-handler
+(defn ^:private build-handler
   [route-m]
   {:pre [(symbol? (:namespace route-m))]}
   (let [action-sym (-> route-m :action name symbol)]
-    (ns-resolve (:namespace route-m)
-                action-sym)))
+    (ns-resolve
+     (:namespace route-m)
+     action-sym)))
 
-(defn- build-path
+(defn ^:private build-path
   [route-m]
   (let [base-path (:base-path route-m)]
     (if-let [path (:path route-m)]
-      (str base-path path)
-      (str base-path "/" (name (:action route-m))))))
+      (str base-path "/" path)  ;; path override
+      (if-let [http-action (name (:action route-m))]
+        (str base-path "/" http-action)
+        (str base-path)    ;; default route
+        ))))
 
-(defn- build-route
+(defn ^:private build-route
   [component route-m]
   (let [method-k (get route-m :method)
         path-str (build-path route-m)
-        path-param-binding (mapv (comp symbol :name)
-                                 (get route-m :path-params))
+        path-param-binding (mapv
+                            (comp symbol :name)
+                            (get route-m :path-params))
         handler (build-handler route-m)]
     (cond
-     (= :post method-k) (compojure/POST path-str path-param-binding
-                                        (partial handler component))
-     (= :delete method-k) (compojure/DELETE path-str path-param-binding
-                                            (partial handler component))
-     :else (compojure/GET path-str path-param-binding
-                          (partial handler component)))))
+      (= :post method-k)
+      (compojure/POST
+       path-str path-param-binding
+       (partial handler component))
+      
+      (= :delete method-k)
+      (compojure/DELETE
+       path-str path-param-binding
+       (partial handler component))
 
-(defn- build-routes-for-component
+      :else
+      (compojure/GET
+       path-str path-param-binding
+       (partial handler component)))))
+
+(defn ^:private build-routes-for-component
   [system component-routes-m]
   {:pre [(map? component-routes-m)]}
   (let [component (get system (:component component-routes-m))
@@ -54,7 +67,7 @@
                           concat (:path-params component-routes-m)))
          (map (partial build-route component)))))
 
-(defn- build-routes
+(defn ^:private build-routes
   [component routes]
   (let [built-routes (->> routes
                           (map (partial build-routes-for-component component))
