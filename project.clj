@@ -9,8 +9,9 @@
 
                  [com.stuartsierra/component "0.2.1"]
                  [compojure "1.1.8"]
-                 ;; [ring/ring-core "1.4.0"]
                  [javax.servlet/servlet-api "2.5"]
+
+                 [hiccup "1.0.5"]
 
                  [ch.qos.logback/logback-classic "1.1.3" :exclusions [org.slf4j/slf4j-api]]
                  [org.slf4j/jul-to-slf4j "1.7.12"]
@@ -22,7 +23,7 @@
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]
   :profiles {:dev {:source-paths ["dev"]
-                   :dependencies [[org.clojure/tools.namespace "0.2.4"]
+                   :dependencies [;; [org.clojure/tools.namespace "0.2.4"]
                                   [http-kit "2.1.16"]]
                    :aliases {"run-dev" ["trampoline" "run" "-m" "user/run-dev"]}}
              
