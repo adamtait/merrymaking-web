@@ -1,0 +1,17 @@
+[:body
+ [:div
+  [:h1 "Merrymaking with Tam & Adam"]]
+
+ [:div
+  [:h3 "September 17th, 2016"]]
+
+
+ [:div
+  [:h3 "San Francisco, California"]]
+
+ [:div "placeholder"]
+
+ [:div "footer"]
+
+ ]
+

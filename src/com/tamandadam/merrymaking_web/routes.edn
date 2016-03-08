@@ -53,4 +53,7 @@
   :base-path ""
   :routes [{:action :index
             :method :get
-            :path ""}]}]
+            :path ""}
+           {:action :example
+            :method :get
+            :path "example"}]}]
