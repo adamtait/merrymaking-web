@@ -2,8 +2,10 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [compojure.core :as compojure]
-            [compojure.handler :as compojure.handler]
-            [com.stuartsierra.component :as component]))
+            [compojure.handler]
+            [compojure.route]
+            [com.stuartsierra.component :as component]
+            [com.tamandadam.merrymaking-web.handlers.middleware :as middleware]))
 
 (def routes-file-name
   "com/tamandadam/merrymaking_web/routes.edn")
@@ -37,21 +39,22 @@
                             (comp symbol :name)
                             (get route-m :path-params))
         handler (build-handler route-m)]
+
     (cond
       (= :post method-k)
       (compojure/POST
        path-str path-param-binding
-       (partial handler component))
+       #(handler component %))
       
       (= :delete method-k)
       (compojure/DELETE
        path-str path-param-binding
-       (partial handler component))
+       #(handler component %))
 
       :else
       (compojure/GET
        path-str path-param-binding
-       (partial handler component)))))
+       #(handler component %)))))
 
 (defn ^:private build-routes-for-component
   [system component-routes-m]
@@ -69,25 +72,31 @@
 
 (defn ^:private build-routes
   [component routes]
-  (let [built-routes (->> routes
-                          (map (partial build-routes-for-component component))
-                          flatten)]
-    (apply compojure/routes built-routes)))
+  (flatten
+   (map
+    #(build-routes-for-component component %)
+    routes)))
+
+(defn compojure-wrap [middleware routes]
+  (compojure.handler/site
+   (apply
+    compojure/routes
+    (concat
+     routes
+     middleware))))
+
+
+;; ------------------------------------------------
+;; ## Component
 
 (defrecord Handlers []
   component/Lifecycle
-  (start [this]
-    (let [loaded-routes-l (load-routes)]
-      #_(validate-routes loaded-routes-l)
-      (assoc this
-             :compiled-routes
-             (compojure.handler/site
-              (build-routes
-               this
-               loaded-routes-l)))))
 
-  (stop [this]
-    this))
+  (start [this]
+    (let [route-maps (build-routes this (load-routes))
+          routes (compojure-wrap middleware/routes route-maps)]
+      (assoc this
+             :compiled-routes routes))))
 
 (defn new-component []
   (component/using
