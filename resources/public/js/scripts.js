@@ -300,6 +300,20 @@ $(document).ready(function() {
         return error;
     }
 
+
+
+    function detectmob() {
+        if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (!detectmob()) {
+        $('.uber-btn').hide();
+    }
+
 }); 
 
 $(window).load(function() { 
@@ -358,6 +372,7 @@ function parallaxBackground() {
         }
     });
 };
+
 //Google Tracking Code
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
