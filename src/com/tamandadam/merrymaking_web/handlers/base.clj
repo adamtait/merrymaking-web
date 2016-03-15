@@ -58,7 +58,9 @@
 
 (def template-src-path "com/tamandadam/merrymaking_web/template.html")
 
-(defn index [component request]
+(defn index
+  "cental landing place for the top-level page"
+  [component request]
   (load-hiccup-src template-src-path))
 
 
