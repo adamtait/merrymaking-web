@@ -1231,22 +1231,22 @@ input[type="submit"]:focus {
     opacity: 0;
   }
 }
-.radio-holder input {
+.input-button-holder input {
   height: 0;
   width: 0;
   overflow: hidden;
   opacity: 0;
 }
-.radio-holder {
+.input-button-holder {
   cursor: pointer;
   display: inline-block;
 }
-.radio-holder:hover,
-.radio-holder.checked {
+.input-button-holder:hover,
+.input-button-holder.checked {
   background: #75c5b1;
   color: #fff;
 }
-.radio-holder.naked {
+.input-button-holder.naked {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
@@ -1261,25 +1261,25 @@ input[type="submit"]:focus {
   -moz-transition: all 0.3s ease;
   opacity: .7;
 }
-.radio-holder.naked span {
+.input-button-holder.naked span {
   border-bottom: 2px solid rgba(0, 0, 0, 0);
   padding-bottom: 4px;
 }
-.radio-holder.naked.checked,
-.radio-holder.naked:hover {
+.input-button-holder.naked.checked,
+.input-button-holder.naked:hover {
   opacity: 1;
   background: none;
   color: #75c5b1;
 }
-.radio-holder.naked.checked span,
-.radio-holder.naked:hover span {
+.input-button-holder.naked.checked span,
+.input-button-holder.naked:hover span {
   border-color: #75c5b1;
 }
 .form-section {
   margin-bottom: 60px;
 }
 @media all and (max-width: 767px) {
-  .radio-holder.naked {
+  .input-button-holder.naked {
     margin-bottom: 20px;
   }
 }

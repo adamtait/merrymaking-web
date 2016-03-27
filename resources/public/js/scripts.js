@@ -123,7 +123,7 @@ $(document).ready(function() {
 
     // Radio box controls
 
-    $('.radio-holder').click(function() {
+    $('.radio-input').click(function() {
         $(this).siblings().find('input').prop('checked', false);
         $(this).find('input').prop('checked', true);
         $(this).closest('.radio-group').find('.radio-holder').removeClass('checked');
@@ -131,12 +131,25 @@ $(document).ready(function() {
     });
 
     $('form input[type="radio"]').each(function() {
-        var valueText = $(this).closest('.radio-holder').find('span').text();
+        let valueText = $(this).closest('.radio-holder').find('span').text();
+        $(this).attr('value', convertToSlug(valueText));
+    });
+
+    // Checkbox controls
+
+    $('.checkbox-btn').click(function() {
+        let inputElem = $(this).find('input');
+        $(inputElem).prop('checked', !$(this).hasClass("checked"));
+        $(this).toggleClass('checked');
+    });
+
+    $('form input[type="checkbox"]').each(function() {
+        let valueText = $(this).closest('.input-button-holder').find('span').text();
         $(this).attr('value', convertToSlug(valueText));
     });
 
     $('form input[type="text"]').each(function() {
-        var attrText = $(this).attr('placeholder');
+        let attrText = $(this).attr('placeholder');
         $(this).attr('name', convertToSlug(attrText));
     });
 

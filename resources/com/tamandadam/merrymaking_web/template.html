@@ -272,7 +272,7 @@
 			      <div class="col-sm-12 text-center">
 				<h1>Say you'll be there</h1>
 				<p>
-				  Please let us know if you can make it by<br> July 10th at the latest, preesh!
+				  Please let us know if you can make it by<br> June 1st at the latest!
 				</p>
 			      </div>
 			    </div>
@@ -282,26 +282,62 @@
 				<form class="form-email" original-error="
 									 Please fill out all fields
 								         ">
-				  <div class="form-section">
-				    <input type="text" name="your-name-names" class="validate-required" placeholder="Your Name / Names">
-				    <div class="radio-group">
-				      <div class="radio-holder btn checked">
-					<span>Can't Wait</span>
-					<input type="radio" name="rsvp" value="cant-wait" checked="checked">
+				  <div id="rsvp-form" class="form-section">
+
+                                    <div id="rsvp-names">
+                                      <input type="text" name="rsvp-name" class="validate-required" placeholder="Name of loved one">
+                                    </div>
+
+                                    
+                                    <!--
+				    <div id="radio-group">
+				      <div class="input-button-holder btn radio-button-holder">
+					<span>Can't Wait!</span>
+					<input type="radio" name="rsvp-" value="cant-wait">
 				      </div>
-				      <div class="radio-holder btn">
+				      <div class="input-button-holder radio-button-holder btn">
 					<span>Can't Come</span>
 					<input type="radio" name="rsvp" value="cant-come">
 				      </div>
 				    </div>
+                                    -->
+
+                                    <div id="rsvp-form-events" class="form-checkboxes" style="margin-top: 10px">
+                                      <span>For which events will you join us?</span>
+
+                                      <div class="input-button-holder checkbox-btn btn">
+                                        <span>ceremony</span>
+                                        <input type="checkbox" name="rsvp-events">
+                                      </div>
+
+                                      <div class="input-button-holder checkbox-btn btn">
+                                        <span>reception</span>
+                                        <input type="checkbox" name="rsvp-events">
+                                      </div>
+
+                                      <div class="input-button-holder checkbox-btn btn">
+                                        <span>after party</span>
+                                        <input type="checkbox" name="rsvp-events">
+                                      </div>
+
+                                      <div class="input-button-holder checkbox-btn btn">
+                                        <span>sunday brunch</span>
+                                        <input type="checkbox" name="rsvp-events">
+                                      </div>
+                                    </div>
+                                    
 				  </div>
+                                  
 				  <input type="submit" value="RSVP">
-				  <div class="form-error">
+
+                                  <div class="form-error">
 				    <span>Please fill out all fields</span>
 				  </div>
-				  <div class="form-success">
+
+                                  <div class="form-success">
 				    <span>Thanks for your RSVP!</span>
 				  </div>
+                                  
 				</form>
 			      </div>
 			    </div>
