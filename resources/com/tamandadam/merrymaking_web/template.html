@@ -278,14 +278,22 @@
 			    </div>
 			    
 			    <div class="row">
-			      <div class="col-sm-12 text-center">
+			      <div class="col-sm-12 col-md-6 col-md-offset-3 text-center">
 				<form class="form-email" original-error="
 									 Please fill out all fields
 								         ">
 				  <div id="rsvp-form" class="form-section">
 
                                     <div id="rsvp-names">
-                                      <input type="text" name="rsvp-name" class="validate-required" placeholder="Name of loved one">
+                                         
+                                      <div id="single-name-group-template" class="single-name-group">
+                                        <input type="text" name="rsvp-name" class="validate-required" placeholder="Name">
+                                        <input type="text" name="rsvp-email" class="validate-required" placeholder="Email">
+                                      </div>
+
+                                      <div id="rsvp-add-another-name" class="input-button-holder btn">
+                                        <span>Add another name</span>
+                                      </div>
                                     </div>
 
                                     

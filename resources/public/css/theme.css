@@ -1302,9 +1302,16 @@ input[type="submit"]:focus {
   margin-right: -2px;
   font-family: 'Lato';
 }
+
 .rsvp form input[type="text"]:focus {
   outline: none;
 }
+
+.rsvp form .single-name-group input[type="text"] {
+    display: inline-block;
+    width: 50%;
+}
+
 .rsvp form input[type="submit"] {
   border: 1px solid #75c5b1;
   color: #75c5b1;

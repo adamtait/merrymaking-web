@@ -121,6 +121,18 @@ $(document).ready(function() {
         directionNav: false
     });
 
+
+    //------------------------------------------------
+    // Form Scripts
+
+    // names & emails
+
+    $('#rsvp-add-another-name').click(function() {
+        let singleNameGroup = $('#single-name-group-template').clone();
+        $(singleNameGroup).removeAttr('id');
+        $(this).before(singleNameGroup);
+    });
+    
     // Radio box controls
 
     $('.radio-input').click(function() {
@@ -139,7 +151,7 @@ $(document).ready(function() {
 
     $('.checkbox-btn').click(function() {
         let inputElem = $(this).find('input');
-        $(inputElem).prop('checked', !$(this).hasClass("checked"));
+        $(inputElem).prop('checked', !$(this).hasClass('checked'));
         $(this).toggleClass('checked');
     });
 
@@ -152,6 +164,8 @@ $(document).ready(function() {
         let attrText = $(this).attr('placeholder');
         $(this).attr('name', convertToSlug(attrText));
     });
+
+    
 
     // Instagram Feed
 
