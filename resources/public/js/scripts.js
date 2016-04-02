@@ -127,14 +127,14 @@ $(document).ready(function() {
 
     // names & emails
 
-    $('#rsvp-add-another-name').click(function() {
+    $('#rsvp-add-another-person').click(function() {
         let singleNameGroup = $('#single-name-group-template').clone();
         $(singleNameGroup).removeAttr('id');
-        $(this).before(singleNameGroup);
+        $(this).parent('.row').before(singleNameGroup);
     });
     
-    // Radio box controls
-
+    // Radio box controls                                              
+   
     $('.radio-input').click(function() {
         $(this).siblings().find('input').prop('checked', false);
         $(this).find('input').prop('checked', true);
@@ -182,13 +182,13 @@ $(document).ready(function() {
 
     // Contact form code
 
-    $('form.form-email').submit(function(e) {
+    $('form.rsvp').submit(function(e) {
 
         // return false so form submits through jQuery rather than reloading page.
         if (e.preventDefault) e.preventDefault();
         else e.returnValue = false;
 
-        var thisForm = $(this).closest('form.form-email'),
+        var thisForm = $(this).closest('form.rsvp'),
             error = 0,
             originalError = thisForm.attr('original-error'),
             loadingSpinner, iFrame, userEmail, userFullName, userFirstName, userLastName;

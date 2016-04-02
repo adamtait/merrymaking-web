@@ -293,7 +293,7 @@
 			
 			<a id="rsvp" class="in-page-link"></a>
 			
-			<section class="rsvp rsvp-1">
+			<section class="rsvp rsvp-1 form-section">
 			  <div class="container">
 			    <div class="row">
 			      <div class="col-sm-12 text-center">
@@ -304,84 +304,80 @@
 			      </div>
 			    </div>
 			    
-			    <div class="row">
-			      <div class="col-sm-12 col-md-6 col-md-offset-3 text-center">
-				<form class="form-email" original-error="
-									 Please fill out all fields
-								         ">
-				  <div id="rsvp-form" class="form-section">
+			    <div class="text-center">
+			      <form class="rsvp-form" original-error="
+								      Please fill out all fields
+								      ">
 
-                                    <div id="rsvp-names">
-                                         
-                                      <div id="single-name-group-template" class="single-name-group">
+                                <div class="form-sub-section">
+                                  <div id="rsvp-names">
+                                    
+                                    <div id="single-name-group-template" class="row single-name-group">
+                                      <div class="col-sm-6">
                                         <input type="text" name="rsvp-name" class="validate-required" placeholder="Name">
+                                      </div>
+                                      <div class="col-sm-6">
                                         <input type="text" name="rsvp-email" class="validate-required" placeholder="Email">
-                                      </div>
-
-                                      <div id="rsvp-add-another-name" class="input-button-holder btn">
-                                        <span>Add another name</span>
-                                      </div>
+                                        </div>
                                     </div>
 
-                                    
-                                    <!--
-				    <div id="radio-group">
-				      <div class="input-button-holder btn radio-button-holder">
-					<span>Can't Wait!</span>
-					<input type="radio" name="rsvp-" value="cant-wait">
-				      </div>
-				      <div class="input-button-holder radio-button-holder btn">
-					<span>Can't Come</span>
-					<input type="radio" name="rsvp" value="cant-come">
-				      </div>
-				    </div>
-                                    -->
-
-                                    <div id="rsvp-form-events" class="form-checkboxes" style="margin-top: 10px">
-                                      <span>For which events will you join us?</span>
-
-                                      <div class="input-button-holder checkbox-btn btn checked">
-                                        <span>ceremony</span>
-                                        <input type="checkbox" name="rsvp-events">
-                                      </div>
-
-                                      <div class="input-button-holder checkbox-btn btn checked">
-                                        <span>reception</span>
-                                        <input type="checkbox" name="rsvp-events">
-                                      </div>
-
-                                      <div class="input-button-holder checkbox-btn btn checked">
-                                        <span>after party</span>
-                                        <input type="checkbox" name="rsvp-events">
-                                      </div>
-
-                                      <div class="input-button-holder checkbox-btn btn checked">
-                                        <span>sunday brunch</span>
-                                        <input type="checkbox" name="rsvp-events">
-                                      </div>
+                                    <div class="row">
+                                      <div id="rsvp-add-another-person" class="col-sm-12 col-md-6 col-md-offset-3 input-button-holder btn">
+                                        <span>Add another person</span>
                                     </div>
-                                    
-				  </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                                <div id="rsvp-form-events" class="form-checkboxes form-sub-section">
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <span class="section-header">For which events will you join us?</span>
+                                    </div>
+                                  </div>
                                   
+                                  <div class="row">
+                                    <div class="col-sm-4 input-button-holder checkbox-btn btn checked">
+                                      <span>ceremony</span>
+                                      <input type="checkbox" name="rsvp-events">
+                                    </div>
+
+                                    <div class="col-sm-4 input-button-holder checkbox-btn btn checked">
+                                      <span>reception</span>
+                                      <input type="checkbox" name="rsvp-events">
+                                    </div>
+
+                                    <div class="col-sm-4 input-button-holder checkbox-btn btn checked">
+                                      <span>sunday brunch</span>
+                                      <input type="checkbox" name="rsvp-events">
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+
+                            
+                                <div class="row form-sub-section">
 				  <input type="submit" value="RSVP">
+                                </div>
+                                
+                                <div class="form-error">
+				  <span>Please fill out all fields</span>
+				</div>
 
-                                  <div class="form-error">
-				    <span>Please fill out all fields</span>
-				  </div>
-
-                                  <div class="form-success">
-				    <span>Thanks for your RSVP!</span>
-				  </div>
-                                  
-				</form>
-			      </div>
+                                <div class="form-success">
+				  <span>Thanks for your RSVP!</span>
+				</div>
+                                
+			      </form>
 			    </div>
+
 			  </div>
 			</section>
 			
 			<section class="details details-2 overlay parallax">
 			  <div class="background-image-holder fadeIn" style="background: url(&quot;assets/img/10609579_10152671784501328_6073971877248557026_n.jpg&quot;) 50% 50%;">
-			    <img alt="Background image" class="background-image" src="/assets/img/10609579_10152671784501328_6073971877248557026_n.jpg" style="display: none;">
+			    <img alt="Background image" class="background-image" src="/assets/img/10609579_10152671784501328_6073971877248557026_n.jpg" style="display: none; ">
 			  </div>
 			  
 			  

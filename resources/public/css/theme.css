@@ -313,6 +313,8 @@ h6,
   font-style: italic;
   opacity: .5;
 }
+
+
 /*!---------- BUTTONS ----------*/
 a:hover,
 a:visited,
@@ -322,7 +324,7 @@ a:active {
   cursor: pointer !important;
 }
 .btn {
-  border: 1px solid #75c5b1;
+  border: 1px solid #f5f5f5;
   color: #75c5b1;
   text-align: center;
   min-width: 160px;
@@ -350,6 +352,11 @@ a:active {
   background: #75c5b1;
   border-color: #75c5b1;
 }
+.checkbox-btn {
+    border: 1px solid #fff;
+}
+
+
 /*!---------- COLOURS ----------*/
 .bg-secondary {
   background: #fcfcfc;
@@ -1136,48 +1143,13 @@ nav.light.scrolled .line-3 {
   color: #75c5b1;
   margin-bottom: 15px;
 }
-/*!---------- REGISTRY ----------*/
-.registry-1 h2 {
-  margin-bottom: 120px;
+
+/*!---------- WEDDING PARTY ----------*/
+
+.wedding-party-member {
+    margin-bottom: 20px;
 }
-.registry-1 a {
-  height: 40px;
-  display: block;
-  line-height: 40px;
-  margin-bottom: 60px;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  opacity: .5;
-}
-.registry-1 a:hover {
-  opacity: 1;
-}
-.registry-1 img {
-  max-width: 225px;
-  display: inline-block;
-  max-height: 120%;
-}
-.registry-2 {
-  padding-bottom: 60px;
-}
-.registry-2 h2 {
-  margin-bottom: 40px;
-}
-.registry-2 p:last-of-type {
-  margin-bottom: 80px;
-}
-.registry-2 img {
-  max-height: 110px;
-}
-.registry-2 a {
-  display: inline-block;
-  margin: 0 16px;
-  margin-bottom: 60px;
-}
-.registry-3:before {
-  opacity: .8;
-}
+
 /*!---------- RSVP ----------*/
 form {
   position: relative;
@@ -1239,7 +1211,8 @@ input[type="submit"]:focus {
 }
 .input-button-holder {
   cursor: pointer;
-  display: inline-block;
+  display: block;
+  margin-bottom: 10px;
 }
 .input-button-holder:hover,
 .input-button-holder.checked {
@@ -1278,6 +1251,10 @@ input[type="submit"]:focus {
 .form-section {
   margin-bottom: 60px;
 }
+.form-sub-section {
+    margin-bottom: 30px;
+}
+
 @media all and (max-width: 767px) {
   .input-button-holder.naked {
     margin-bottom: 20px;
@@ -1287,11 +1264,20 @@ input[type="submit"]:focus {
   margin: 0 auto;
   display: inline-block;
 }
+
+.rsvp form .form-sub-section span.section-header {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 200px;
+    letter-spacing: 0px;
+}
+
 .rsvp form input[type="text"] {
   height: 55px;
   background: #fcfcfc;
   border: 1px solid #d6d6d6;
-  width: 100%;
+  /* width: 100%; */
   padding: 0 8px;
   text-align: center;
   font-size: 12px;
@@ -1308,8 +1294,9 @@ input[type="submit"]:focus {
 }
 
 .rsvp form .single-name-group input[type="text"] {
-    display: inline-block;
-    width: 50%;
+    /* display: inline-block; */
+    width: 100%;
+    min-width: 300px;
 }
 
 .rsvp form input[type="submit"] {
