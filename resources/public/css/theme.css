@@ -344,6 +344,7 @@ a:active {
   background: #75c5b1;
   color: #fff;
 }
+
 .btn-white {
   color: #fff;
   border-color: #fff;
@@ -352,6 +353,16 @@ a:active {
   background: #75c5b1;
   border-color: #75c5b1;
 }
+
+.btn-black {
+  color: #000;
+  border-color: #000;
+}
+.btn-black:hover {
+  background: #2F4F4F;
+  border-color: #2F4F4F;
+}
+
 .checkbox-btn {
     border: 1px solid #fff;
 }
@@ -1090,58 +1101,52 @@ nav.light.scrolled .line-3 {
     display: none;
   }
 }
+
+
 /*!---------- ACCOMMODATION ----------*/
-.accom-1 h1,
-.accom-1 h2,
-.accom-1 h3,
-.accom-1 h4,
-.accom-1 h5,
-.accom-1 h6 {
-  color: #ffffff;
+.accom h1,
+.accom h2,
+.accom h3,
+.accom h4,
+.accom h5,
+.accom h6 {
+    //color: #000;
+    color: #fff;
+    font-weight: 500;
 }
-.accom-1 p,
-.accom-1 span,
-.accom-1 li {
-  color: #ffffff;
+.accom p,
+.accom span,
+.accom li {//
+    color: #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
 }
-.accom-1.light h1,
-.accom-1.light h2,
-.accom-1.light h3,
-.accom-1.light h4,
-.accom-1.light h5,
-.accom-1.light h6 {
+.accom.light h1,
+.accom.light h2,
+.accom.light h3,
+.accom.light h4,
+.accom.light h5,
+.accom.light h6 {
   color: #222222;
 }
-.accom-1.light p,
-.accom-1.light span,
-.accom-1.light li {
+.accom.light p,
+.accom.light span,
+.accom.light li {
   color: #444444;
 }
-.accom-1 h6 {
+.accom h6 {
   margin-bottom: 30px;
 }
-.accom-1 h1 {
+.accom h1 {
   margin-bottom: 40px;
 }
-.accom-1 p:last-of-type {
+.accom p:last-of-type {
   margin-bottom: 40px;
 }
-.accom-2 {
-  padding-bottom: 60px;
-}
-.accom-2 .feature {
-  margin-bottom: 60px;
-}
-.accom-2 h2 {
-  margin-bottom: 60px;
-}
-.accom-2 img {
-  display: inline-block;
-  margin-bottom: 30px;
-}
-.accom-2 h6 {
-  color: #75c5b1;
-  margin-bottom: 15px;
+
+.accom-option {
+    margin-bottom: 30px;
 }
 
 /*!---------- WEDDING PARTY ----------*/
