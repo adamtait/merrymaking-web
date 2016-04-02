@@ -112,7 +112,7 @@ ul {
 }
 /*!---------- SECTIONS ----------*/
 section {
-  padding: 120px 0;
+  /* padding: 120px 0; */
   background: #fff;
   overflow: hidden;
   position: relative;
@@ -845,6 +845,8 @@ nav.light.scrolled .line-3 {
 .story-4 .image-slider {
   margin-bottom: 30px;
 }
+
+
 /*!---------- DETAILS ----------*/
 .details-1 {
   padding-bottom: 60px;
@@ -875,11 +877,13 @@ nav.light.scrolled .line-3 {
   }
 }
 .details-2 {
-  background: #75c5b1;
-  padding: 180px 0;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
+    background: #75c5b1;
+    margin-top: 40px;
+    padding: -100px 0;
+    
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
 }
 .details-2 h1,
 .details-2 h2,
@@ -1001,6 +1005,11 @@ nav.light.scrolled .line-3 {
     display: block;
   }
 }
+
+.details .hero-image {
+    width: 100%
+}
+
 /*!---------- GALLERY ----------*/
 .instafeed img {
   display: none;
