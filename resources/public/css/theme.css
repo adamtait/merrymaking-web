@@ -1320,6 +1320,10 @@ input[type="submit"]:focus {
 .rsvp form textarea {
     width: 100%;
     min-width: 500px;
+
+    padding: 5px;
+    
+    font-size: 16px;
 }
 
 #rsvp-dates input[type="text"] {
