@@ -882,7 +882,7 @@ nav.light.scrolled .line-3 {
     background: #75c5b1;
     margin-top: 40px;
     padding: -100px 0;
-    
+
     transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -1266,7 +1266,8 @@ input[type="submit"]:focus {
   border-color: #75c5b1;
 }
 .form-section {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    overflow: visible;
 }
 .form-sub-section {
     margin-bottom: 30px;
@@ -1321,6 +1322,12 @@ input[type="submit"]:focus {
     min-width: 500px;
 }
 
+#rsvp-dates input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.2;
+    
+}
 
 .rsvp form input[type="submit"] {
   border: 1px solid #75c5b1;

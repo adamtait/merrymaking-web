@@ -165,6 +165,23 @@ $(document).ready(function() {
         $(this).attr('name', convertToSlug(attrText));
     });
 
+
+    // Pickadate (Date picker) controls
+
+    var from_$input = $('#rsvp-arrival-date').pickadate({
+        selectYears: false,
+        hiddenName: true,
+        min: new Date(2016,8,1),
+        max: new Date(2016,8,17)}),
+    from_picker = from_$input.pickadate('picker')
+
+    var to_$input = $('#rsvp-departure-date').pickadate({
+        selectYears: false,
+        hiddenName: true,
+        min: new Date(2016,8,17),
+        max: new Date(2016,9,31)}),
+    to_picker = to_$input.pickadate('picker')
+
     
 
     // Instagram Feed
