@@ -1312,17 +1312,14 @@ input[type="submit"]:focus {
 }
 
 .rsvp form .single-name-group input[type="text"] {
-    /* display: inline-block; */
+    display: inline-block;
     width: 100%;
     min-width: 300px;
 }
 
 .rsvp form textarea {
     width: 100%;
-    min-width: 500px;
-
     padding: 5px;
-    
     font-size: 16px;
 }
 
@@ -1338,6 +1335,7 @@ input[type="submit"]:focus {
   color: #75c5b1;
   text-align: center;
   min-width: 160px;
+  width: 100%;
   height: 55px;
   line-height: 53px;
   text-transform: uppercase;
