@@ -4,8 +4,7 @@
             [compojure.handler :as compojure]
             [com.tamandadam.merrymaking-web.handlers :as handlers]
             [com.tamandadam.merrymaking-web.handlers.base :as base]
-            [com.tamandadam.merrymaking-web.handlers.rsvp :as rsvp]
-            ))
+            [com.tamandadam.merrymaking-web.handlers.rsvp :as rsvp]))
 
             
 (defn new-system []
@@ -52,4 +51,3 @@
 (defn app-engine-stop []
   (stop)
   (alter-var-root #'app-engine-handlers nil))
-

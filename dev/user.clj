@@ -1,4 +1,4 @@
-(ns dev
+(ns user
   "Tools for interactive development with the REPL. This file should
   not be included in a production build of the application."
   (:require
@@ -27,11 +27,12 @@
 (defrecord DevServerComponent [port]
   component/Lifecycle
   (start [this]
-    (assoc this
-           :server
-           (httpkit/run-server
-            (server/started-handlers)
-            {:port port})))
+    (server/app-engine-start)
+    (assoc
+     this :server
+     (httpkit/run-server
+      server/app-engine-handlers
+      {:port port})))
 
   (stop [this]
     ((get this :server) :timeout 1000)
