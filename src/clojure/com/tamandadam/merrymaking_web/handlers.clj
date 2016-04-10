@@ -1,17 +1,25 @@
 (ns com.tamandadam.merrymaking-web.handlers
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
+            [clojure.pprint]
             [compojure.core :as compojure]
             [compojure.handler]
             [compojure.route]
             [com.stuartsierra.component :as component]
             [com.tamandadam.merrymaking-web.handlers.middleware :as middleware]))
 
+;; ------------------------------------------------
+;; ## Load Routes configuration
+
 (def routes-file-name
   "com/tamandadam/merrymaking_web/routes.edn")
 
 (defn load-routes []
   (clojure.edn/read-string (slurp (io/resource routes-file-name))))
+
+
+;; ------------------------------------------------
+;; ## Helpers
 
 (defn ^:private build-handler
   [route-m]
@@ -31,7 +39,23 @@
         (str base-path)    ;; default route
         ))))
 
-(defn ^:private build-route
+
+;; ------------------------------------------------
+;; ## Development Helpers
+
+(defn ^:private print-routes
+  [route-maps]
+  (doseq [r route-maps]
+    (println "---- new route ----")
+    (clojure.pprint/pprint r)
+    (println "full path: " (build-path r))
+    (println)))
+
+
+;; ------------------------------------------------
+;; ## Route Map Building
+
+(defn ^:private compojure-route-maps
   [component route-m]
   (let [method-k (get route-m :method)
         path-str (build-path route-m)
@@ -56,28 +80,39 @@
        path-str path-param-binding
        #(handler component %)))))
 
+(defn ^:private route-maps
+  [component-routes-m]
+  {:pre [(map? component-routes-m)]}
+  (let [namespace (:namespace component-routes-m)
+        base-path (get component-routes-m :base-path "")]
+    (->>
+     (:routes component-routes-m)
+     (map #(dissoc % :component))
+     (map #(assoc % :base-path base-path))
+     (map #(assoc % :namespace namespace))
+     (map
+      #(update-in % [:path-params]
+                  concat (:path-params component-routes-m))))))
+
 (defn ^:private build-routes-for-component
   [system component-routes-m]
-  {:pre [(map? component-routes-m)]}
   (let [component (get system (:component component-routes-m))
-        namespace (:namespace component-routes-m)
-        base-path (get component-routes-m :base-path "")]
-    (->> (:routes component-routes-m)
-         (map #(dissoc % :component))
-         (map #(assoc % :base-path base-path))
-         (map #(assoc % :namespace namespace))
-         (map #(update-in % [:path-params]
-                          concat (:path-params component-routes-m)))
-         (map (partial build-route component)))))
+        route-maps (route-maps component-routes-m)]
+    (print-routes route-maps)
 
-(defn ^:private build-routes
+    (map
+     #(compojure-route-maps component %)
+     route-maps)))
+
+(defn ^:private routes
   [component routes]
   (flatten
    (map
     #(build-routes-for-component component %)
     routes)))
 
-(defn compojure-wrap [middleware routes]
+(defn ^:private compojure-wrap
+  [middleware routes]
   (compojure.handler/site
    (apply
     compojure/routes
@@ -93,7 +128,7 @@
   component/Lifecycle
 
   (start [this]
-    (let [route-maps (build-routes this (load-routes))
+    (let [route-maps (routes this (load-routes))
           routes (compojure-wrap middleware/routes route-maps)]
       (assoc this
              :compiled-routes routes))))

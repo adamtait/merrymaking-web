@@ -56,4 +56,5 @@
             :path ""}
            {:action :example
             :method :get
-            :path "example"}]}]
+            :path "example"}]}
+ ]
