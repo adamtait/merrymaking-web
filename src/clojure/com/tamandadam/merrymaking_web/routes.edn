@@ -57,4 +57,10 @@
            {:action :example
             :method :get
             :path "example"}]}
+ {:component :com.tamandadam.merrymaking-web.server/rsvp
+  :namespace com.tamandadam.merrymaking-web.handlers.rsvp
+  :base-path "/rsvp"
+  :routes [{:action :submit
+            :method :post
+            :path ""}]}
  ]
