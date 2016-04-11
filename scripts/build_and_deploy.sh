@@ -15,6 +15,7 @@ unzip -d target/war target/merrymaking-web-0.0.1-SNAPSHOT-standalone.war > /dev/
 ## add App Engine configs
 cp app.yaml target/war
 cp appengine-web.xml target/war/WEB-INF/
+cp logging.properties target/war/WEB-INF/
 
 
 ## deploy
