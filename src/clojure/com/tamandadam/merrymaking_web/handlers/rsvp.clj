@@ -1,13 +1,12 @@
 (ns com.tamandadam.merrymaking-web.handlers.rsvp
   (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]
-            [clojure.tools.logging :as log]
             [clojure.pprint]
             [com.stuartsierra.component :as component]
-            [ring.util.response :as response]
-            [com.tamandadam.merrymaking-web.mail :refer [send-new-rsvp]])
+            #_[ring.util.response :as response]
+            [com.tamandadam.merrymaking-web.mail :refer [send-new-rsvp]]
+            [com.tamandadam.merrymaking-web.log :refer [log log-error]])
   (:import
-   (com.google.gcloud.datastore DateTime Entity Key Query StringValue Transaction)
+   #_(com.google.gcloud.datastore DateTime Entity Key Query StringValue Transaction)
    #_(com.tamandadam.merrymaking_web GoogleDatastore)))
 
 ;; ------------------------------------------------
@@ -39,28 +38,38 @@
     (clojure.pprint/pprint m w)
     (.toString w)))
 
-(defn log-request [request]
-  (println "request details /")
-  (clojure.pprint/pprint request)
-  (println "/")
+(defn first-senders-name
+  "Get the first of the sender's name. Handles both cases that only
+  one person is responding or many people are."
+  [data]
+  (let [n (:name data)]
+    (if (coll? n)
+      (first n)
+      n)))
 
-  (log/info (str "Recieved request to submit RSVP form: /" (pr-str request) "/")))
+(defn log-request [data]
+  (log
+   (str
+    "Recieved request to submit RSVP form: \n"
+    (hashmap-to-string data))))
 
-(defn send-email [request]
-  (let [name "Tam"
-        msg (hashmap-to-string request)]
-   (send-new-rsvp name msg)))
+(defn send-email [data]
+  (let [name (first-senders-name data)
+        msg (hashmap-to-string data)]
+    (send-new-rsvp name msg)))
 
 (defn submit
-  "for submitting the RSVP form"
+  "called upon submitting the RSVP form"
   [component request]
-
-  (log-request request)
-  (send-email request)
   
-  {:status 200
-   :headers {}
-   :body "Thanks for playing!"})
+  (let [data (:params request)]
+    (log-request data)
+    (send-email data)
+    
+    (let [name (first-senders-name data)]
+      {:status 200
+       :headers {}
+       :body (str "Thanks for your RSVP, " name "!")})))
 
 
 ;; ------------------------------------------------
