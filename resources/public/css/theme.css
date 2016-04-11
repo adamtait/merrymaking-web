@@ -168,8 +168,28 @@ section.bg-primary li {
   }
 }
 /*!---------- TYPOGRAPHY ----------*/
+
+@font-face {
+    font-family: Hectra;
+    src: url("fonts/hectra.otf") format("opentype");
+}
+
+@font-face {
+    font-family: HectraBold;
+    font-weight: bold;
+    src: url("fonts/hectra_bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MyriadPro;
+    src: url("fonts/myriad_pro.otf") format("opentype");
+}
+
+
+
+
 body {
-  font-family: "Libre Baskerville", "Georgia", Times New Roman, Time, serif;
+  font-family: MyriadPro;
   font-size: 14px;
   line-height: 28px;
   color: #444444;
@@ -184,7 +204,7 @@ h5,
 h6,
 .menu li a,
 .logo span {
-  font-family: 'Lato', "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Hectra;
   color: #222;
   margin: 0;
   cursor: default;
