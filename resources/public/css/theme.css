@@ -175,24 +175,21 @@ section.bg-primary li {
 
 @font-face {
     font-family: Hectra;
-    src: url("fonts/hectra.eot");
-    src: url("fonts/hectra.eot") format("embedded-opentype"),
-    url("fonts/hectra.otf") format("opentype");
+    src: url('fonts/hectra.eot?#iefix') format('embedded-opentype'),
+    url('fonts/hectra.otf') format('opentype');
 }
 
 @font-face {
     font-family: HectraBold;
     font-weight: bold;
-    src: url("fonts/hectra_bold.eot");
-    src: url("fonts/hectra_bold.eot") format("embedded-opentype"),
-    url("fonts/hectra_bold.otf") format("opentype");
+    src: url('fonts/hectra_bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/hectra_bold.otf') format('opentype');
 }
 
 @font-face {
     font-family: MyriadPro;
-    src: url("fonts/myriad_pro.eot");
-    src: url("fonts/myriad_pro.eot") format("embedded-opentype"),
-    url("fonts/myriad_pro.otf") format("opentype");
+    src: url('fonts/myriad_pro.eot?#iefix') format('embedded-opentype'),
+    url('fonts/myriad_pro.otf') format('opentype');
 }
 
 
@@ -214,13 +211,13 @@ h5,
 h6,
 .menu li a,
 .logo span {
-  font-family: Hectra;
+  font-family: Hectra, Courier, serif;
   color: #222;
   margin: 0;
   cursor: default;
 }
 h4, h5, h6 {
-    font-family: MyriadPro;
+    font-family: MyriadPro, Verdana, sans-serif;
 }
 
 h1 {
@@ -367,7 +364,7 @@ a:active {
   height: 55px;
   line-height: 53px;
   text-transform: uppercase;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: MyriadPro, Verdana, sans-serif;
   font-size: 12px;
   font-weight: 700;
   padding: 0;
@@ -1159,6 +1156,13 @@ nav.light.scrolled .line-3 {
     color: #fff;
     font-weight: 500;
 }
+.accom h2,
+.accom h3,
+.accom h4,
+.accom h5,
+.accom h6 {
+    font-family: MyriadPro, Verdana, sans-serif;
+}
 .accom p,
 .accom span,
 .accom li {//
@@ -1277,7 +1281,7 @@ input[type="submit"]:focus {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-right: -2px;
-  font-family: 'Lato';
+  font-family: MyriadPro, Verdana, sans-serif;
   margin: 0 16px;
   color: #008e8d;
   transition: all 0.3s ease;
@@ -1338,7 +1342,7 @@ input[type="submit"]:focus {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-right: -2px;
-  font-family: 'Lato';
+  font-family: MyriadPro, Verdana, sans-serif;
 }
 
 .rsvp form input[type="text"]:focus {
@@ -1373,7 +1377,7 @@ input[type="submit"]:focus {
   height: 55px;
   line-height: 53px;
   text-transform: uppercase;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: MyriadPro, Verdana, sans-serif;
   font-weight: 700;
   padding: 0;
   border-radius: 0;
