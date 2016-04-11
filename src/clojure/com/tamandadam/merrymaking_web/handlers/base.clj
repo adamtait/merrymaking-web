@@ -6,57 +6,13 @@
             [hiccup.page :refer [html5]]))
 
 ;; ------------------------------------------------
-;; ## Helpers
+;; ## Template
 
-(defn ^:private collapse-strs
-  "Collapse nested str expressions into one, where possible. Taken
-  from hiccup.compiler"
-  [expr]
-  (if (seq? expr)
-    (cons
-     (first expr)
-     (mapcat
-      #(if (and
-            (seq? %)
-            (symbol? (first %))
-            (= (first %) (first expr) `str))
-         (rest (collapse-strs %))
-         (list (collapse-strs %)))
-      (rest expr)))
-    expr))
-
-
-;; ------------------------------------------------
-;; ## HTML page header
-
-(def html-doctype-path "com/tamandadam/merrymaking_web/html_doctype.html")
-
-(defn html-doctype-strs []
-  (slurp
-   (io/file
-    (io/resource html-doctype-path))))
-
-
-;; ------------------------------------------------
-;; ## index path
-
-(def index-src-path "com/tamandadam/merrymaking_web/index.html")
+(def template-src-path "com/tamandadam/merrymaking_web/index.html")
 
 (defn load-hiccup-src [path]
   (slurp
    (io/resource path)))
-
-(defn example [component request]
-  (let [html-src (load-hiccup-src index-src-path)]
-    (str
-     (html-doctype-strs)
-     html-src)))
-
-
-;; ------------------------------------------------
-;; ## Template
-
-(def template-src-path "com/tamandadam/merrymaking_web/template.html")
 
 (defn index
   "cental landing place for the top-level page"
