@@ -246,12 +246,13 @@ h5 {
 }
 h6,
 .h6 {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-right: -2px;
+    font-family: MyriadPro;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
 }
 @media all and (max-width: 990px) {
   h1 {
