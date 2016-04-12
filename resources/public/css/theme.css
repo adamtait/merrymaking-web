@@ -1271,6 +1271,9 @@ input[type="submit"]:focus {
     opacity: 0;
   }
 }
+
+/* regular input buttons */
+
 .input-button-holder input {
   height: 0;
   width: 0;
@@ -1287,6 +1290,14 @@ input[type="submit"]:focus {
   background: #008e8d;
   color: #fff;
 }
+.input-button-holder.checked:hover {
+  background: #fff;
+  color: #008e8d;
+}
+
+
+/* naked input buttons (with underlines) */
+
 .input-button-holder.naked {
   font-size: 12px;
   line-height: 20px;
