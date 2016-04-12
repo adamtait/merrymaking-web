@@ -1321,7 +1321,7 @@ input[type="submit"]:focus {
     overflow: visible;
 }
 .form-sub-section {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 @media all and (max-width: 767px) {
@@ -1411,7 +1411,7 @@ input[type="submit"]:focus {
   margin-bottom: 30px;
 }
 .rsvp-1 p:last-of-type {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .rsvp-1 form input[type="text"] {
   margin-bottom: 5px;
