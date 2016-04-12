@@ -1343,6 +1343,7 @@ input[type="submit"]:focus {
 .rsvp form {
   margin: 0 auto;
   display: inline-block;
+  width: 100%;
 }
 
 .rsvp form .form-sub-section span.section-header {
