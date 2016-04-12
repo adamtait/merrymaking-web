@@ -202,7 +202,7 @@ section.bg-primary li {
 
 
 body {
-  font-family: MyriadPro;
+  font-family: MyriadPro, Verdana, sans-serif;
   font-size: 14px;
   line-height: 28px;
   color: #444444;
