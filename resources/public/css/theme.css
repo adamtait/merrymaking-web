@@ -1410,7 +1410,7 @@ input[type="submit"]:focus {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   background: none;
-  font-size: 12px;
+  font-size: 23px;
 }
 .rsvp form input[type="submit"]:hover {
   background: #008e8d;
