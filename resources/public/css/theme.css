@@ -1201,7 +1201,14 @@ nav.light.scrolled .line-3 {
 }
 
 .accom-option {
+    height: 227px;
     margin-bottom: 30px;
+}
+
+.accom-option a {
+    position: absolute;
+    bottom: 0px;
+    left: 117px;
 }
 
 /*!---------- WEDDING PARTY ----------*/
