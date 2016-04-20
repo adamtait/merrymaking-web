@@ -1456,14 +1456,15 @@ input[type="submit"]:focus {
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
-  position: absolute;
-  bottom: 110%;
+
   width: 100%;
   padding: 8px;
   color: #fff;
 }
 .form-error {
-  background: #c34747;
+      position: absolute;
+      bottom: 110%;
+      background: #c34747;
 }
 .form-success {
   background: #47c347;

@@ -231,25 +231,12 @@ $(document).ready(function() {
                     // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
                     $(thisForm).find('.form-loading').remove();
                     $(thisForm).find('input[type="submit"]').show();
-                    if ($.isNumeric(response)) {
-                        if (parseInt(response) > 0) {
-                            thisForm.find('.form-success').fadeIn(1000);
-                            thisForm.find('.form-error').fadeOut(1000);
-                            setTimeout(function() {
-                                thisForm.find('.form-success').fadeOut(500);
-                            }, 5000);
-                        }
-                    }
-                    // If error text was returned, put the text in the .form-error div and show it.
-                    else {
-                    // Keep the current error text in a data attribute on the form
-                        thisForm.find('.form-error').attr('original-error', thisForm.find('.form-error').text());
-                    // Show the error with the returned error text.
-                        thisForm.find('.form-error').text(response).fadeIn(1000);
-                        thisForm.find('.form-success').fadeOut(1000);
-                    }
 
-                    console.log("response: /" + response + "/");
+                    thisForm.find('.form-success').text(response).fadeIn(1000);
+                    thisForm.find('.form-error').fadeOut(1000);
+                    setTimeout(function() {
+                        thisForm.find('.form-success').fadeOut(500);
+                    }, 5000);
                 },
                 error: function(errorObject, errorText, errorHTTP) {
                     // Keep the current error text in a data attribute on the form
@@ -259,8 +246,6 @@ $(document).ready(function() {
                     thisForm.find('.form-success').fadeOut(1000);
                     $(thisForm).find('.form-loading').remove();
                     $(thisForm).find('input[type="submit"]').show();
-
-                    console.log("error response: /" + JSON.parse(JSON.stringify(errorObject)) + "/" + errorText + "/" + errorHTTP + "/");
                 }
             });
         }
