@@ -1175,7 +1175,7 @@ nav.light.scrolled .line-3 {
     color: #000;
     color: #fff;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 }
 .accom.light h1,
 .accom.light h2,
@@ -1195,6 +1195,9 @@ nav.light.scrolled .line-3 {
 }
 .accom h1 {
   margin-bottom: 40px;
+}
+.accom h2 {
+    font-size: 22px;
 }
 .accom p:last-of-type {
   margin-bottom: 40px;
@@ -1384,7 +1387,23 @@ input[type="submit"]:focus {
     width: 100%;
     padding: 5px;
     font-size: 16px;
+
+    border: 1px solid black;
 }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #d6d6d6;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #d6d6d6;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #d6d6d6;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #d6d6d6;
+}
+
 
 #rsvp-dates input[type="text"] {
     width: 100%;
@@ -1459,7 +1478,11 @@ input[type="submit"]:focus {
 
   width: 100%;
   padding: 8px;
+  
   color: #fff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
 }
 .form-error {
       position: absolute;
@@ -1467,7 +1490,7 @@ input[type="submit"]:focus {
       background: #c34747;
 }
 .form-success {
-  background: #47c347;
+  background: #4D5170;
 }
 @media all and (max-width: 767px) {
   .rsvp-2 .form-wrapper {
