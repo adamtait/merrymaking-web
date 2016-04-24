@@ -66,10 +66,9 @@
     (log-request data)
     (send-email data)
     
-    (let [name (first-senders-name data)]
-      {:status 200
-       :headers {}
-       :body (str "Thanks for your RSVP, " name "!")})))
+    {:status 200
+     :headers {}
+     :body (str "Thanks for your RSVP!")}))
 
 
 ;; ------------------------------------------------
