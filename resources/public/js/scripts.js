@@ -167,6 +167,18 @@ $(document).ready(function() {
     });
 
 
+    // Textarea(s)
+
+    $('form textarea').keyup(function() {
+        let borderTopWidth = parseFloat($(this).css("borderTopWidth"));
+        let borderBottomWidth = parseFloat($(this).css("borderBottomWidth"));
+        while( $(this).outerHeight() <
+               (this.scrollHeight + borderTopWidth + borderBottomWidth)) {
+        $(this).height( $(this).height() + 2 );
+    };
+    });
+    
+
     // Instagram Feed
 
     //jQuery.fn.spectragram.accessData = {
