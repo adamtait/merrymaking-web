@@ -153,7 +153,17 @@ $(document).ready(function() {
     $('.checkbox-btn').click(function() {
         let inputElem = $(this).find('input');
         $(inputElem).prop('checked', !$(this).hasClass('checked'));
-        $(this).toggleClass('checked');
+
+        // IE seems to show a black dashed border around these
+        // elements & a makes the font black immediately after
+        // de-selection. This is a guess that .toggleClass doesn't
+        // work correctly in IE.
+        // $(this).toggleClass('checked');
+        if ( $(this).hasClass('checked') ) {
+            $(this).removeClass('checked');
+        } else {
+            $(this).addClass('checked');
+        }
     });
 
     $('form input[type="checkbox"]').each(function() {
