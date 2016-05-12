@@ -1171,7 +1171,7 @@ nav.light.scrolled .line-3 {
 }
 .accom p,
 .accom span,
-.accom li {//
+.accom li {
     color: #000;
     color: #fff;
     font-weight: 600;
@@ -1203,16 +1203,19 @@ nav.light.scrolled .line-3 {
   margin-bottom: 40px;
 }
 
-.accom-option {
-    height: 227px;
-    margin-bottom: 30px;
+@media all and (max-width: 767px) {
+    .accom-option {
+        margin-bottom: 50px;
+    }
 }
 
-.accom-option a {
-    position: absolute;
-    bottom: 0px;
-    left: 117px;
+@media all and (min-width: 767px) {
+    .accom-desc {
+        min-height: 135px;
+    }
 }
+
+
 
 /*!---------- WEDDING PARTY ----------*/
 
