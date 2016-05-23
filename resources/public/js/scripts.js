@@ -122,7 +122,7 @@ $(document).ready(function() {
     // names & emails
 
     $('#rsvp-add-another-person').click(function() {
-        let singleNameGroup = $('#single-name-group-template').clone();
+        var singleNameGroup = $('#single-name-group-template').clone();
         $(singleNameGroup).removeAttr('id');
         $(this).parent('.row').before(singleNameGroup);
     });
@@ -137,7 +137,7 @@ $(document).ready(function() {
     });
 
     $('form input[type="radio"]').each(function() {
-        let valueText = $(this).closest('.radio-holder').find('span').text();
+        var valueText = $(this).closest('.radio-holder').find('span').text();
         $(this).attr('value', convertToSlug(valueText));
     });
 
@@ -145,13 +145,13 @@ $(document).ready(function() {
 
     $('.checkbox-btn').map(function (i, e) {
         if ( $(this).hasClass('checked') ) {
-            let inputElem = $(this).find('input');
+            var inputElem = $(this).find('input');
             $(inputElem).prop('checked', true);
         }
     });
     
     $('.checkbox-btn').click(function() {
-        let inputElem = $(this).find('input');
+        var inputElem = $(this).find('input');
         $(inputElem).prop('checked', !$(this).hasClass('checked'));
 
         // IE seems to show a black dashed border around these
@@ -167,12 +167,12 @@ $(document).ready(function() {
     });
 
     $('form input[type="checkbox"]').each(function() {
-        let valueText = $(this).closest('.input-button-holder').find('span').text();
+        var valueText = $(this).closest('.input-button-holder').find('span').text();
         $(this).attr('value', convertToSlug(valueText));
     });
 
     $('form input[type="text"]').each(function() {
-        let attrText = $(this).attr('placeholder');
+        var attrText = $(this).attr('placeholder');
         $(this).attr('name', convertToSlug(attrText));
     });
 
@@ -180,8 +180,8 @@ $(document).ready(function() {
     // Textarea(s)
 
     $('form textarea').keyup(function() {
-        let borderTopWidth = parseFloat($(this).css("borderTopWidth"));
-        let borderBottomWidth = parseFloat($(this).css("borderBottomWidth"));
+        var borderTopWidth = parseFloat($(this).css("borderTopWidth"));
+        var borderBottomWidth = parseFloat($(this).css("borderBottomWidth"));
         while( $(this).outerHeight() <
                (this.scrollHeight + borderTopWidth + borderBottomWidth)) {
         $(this).height( $(this).height() + 2 );
