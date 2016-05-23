@@ -124,6 +124,9 @@ $(document).ready(function() {
     $('#rsvp-add-another-person').click(function() {
         var singleNameGroup = $('#single-name-group-template').clone();
         $(singleNameGroup).removeAttr('id');
+        $(singleNameGroup).find("input").map(function (i, e) {
+            $(this).val("");
+        });
         $(this).parent('.row').before(singleNameGroup);
     });
     
