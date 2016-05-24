@@ -1501,6 +1501,16 @@ input[type="submit"]:focus {
     padding: 20px;
   }
 }
+
+
+/*!---------- GIFTS ----------*/
+
+.gifts .size22 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+
 /*!---------- FOOTER ----------*/
 footer {
   padding: 60px 0;
