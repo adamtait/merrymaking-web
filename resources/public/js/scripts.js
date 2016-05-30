@@ -161,12 +161,12 @@ $(document).ready(function() {
         // elements & a makes the font black immediately after
         // de-selection. This is a guess that .toggleClass doesn't
         // work correctly in IE.
-        $(this).toggleClass('checked');
-        // if ( $(this).hasClass('checked') ) {
-        //    $(this).removeClass('checked');
-        // } else {
-        //    $(this).addClass('checked');
-        //}
+        // $(this).toggleClass('checked');
+        if ( $(this).hasClass('checked') ) {
+          $(this).removeClass('checked');
+        } else {
+          $(this).addClass('checked');
+        }
     });
 
     $('form input[type="checkbox"]').each(function() {
