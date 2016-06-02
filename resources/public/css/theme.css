@@ -1513,6 +1513,7 @@ input[type="submit"]:focus {
   color: #777;
   margin-bottom: 20px;
 }
+
 .form-error,
 .form-success {
   display: none;
@@ -1528,6 +1529,7 @@ input[type="submit"]:focus {
   font-size: 22px;
   font-weight: 500;
 }
+
 .form-error {
       position: absolute;
       bottom: 110%;
@@ -1536,10 +1538,15 @@ input[type="submit"]:focus {
 .form-success {
   background: #4D5170;
 }
+
 @media all and (max-width: 767px) {
   .rsvp-2 .form-wrapper {
     width: 100%;
     padding: 20px;
+  }
+
+  .form-error {
+    bottom: 0%;
   }
 }
 
