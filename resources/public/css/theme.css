@@ -379,36 +379,40 @@ a:active {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
 }
-@media (min-width: 767px) {
-  .btn:hover {
-    background: #008e8d;
-    color: #fff;
-  }
-} 
 
 .btn-white {
   color: #fff;
   border-color: #fff;
 }
-.btn-white:hover {
-  background: #008e8d;
-  border-color: #008e8d;
-}
+
 
 .btn-black {
   color: #000;
   border-color: #000;
 }
-.btn-black:hover {
-  background: #2F4F4F;
-  border-color: #2F4F4F;
-}
+
+
+@media only screen and (min-width: 767px) {
+  .btn:hover {
+    background: #008e8d;
+    color: #fff;
+  }
+  
+  .btn-white:hover {
+    background: #008e8d;
+    border-color: #008e8d;
+  }
+
+  .btn-black:hover {
+    background: #2F4F4F;
+    border-color: #2F4F4F;
+  }
+} 
 
 .checkbox-btn {
     border: 1px solid #f5f5f5;
     margin-bottom: 20px;
 }
-
 
 /*!---------- COLOURS ----------*/
 .bg-secondary {
@@ -503,13 +507,18 @@ nav {
 .menu li:last-child {
   margin-right: 0;
 }
-.menu li:hover {
-  opacity: 1;
-  cursor: pointer;
+
+@media only screen and (min-width: 768px) {
+  .menu li:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .menu li:hover a {
+    color: #008e8d;
+  }
 }
-.menu li:hover a {
-  color: #008e8d;
-}
+
 .menu li a {
   font-size: 12px;
   line-height: 20px;
@@ -523,6 +532,7 @@ nav {
   -moz-transition: all 0.3s ease;
   margin-right: 0;
 }
+
 @media all and (max-width: 768px) {
   .nav-1 {
     height: auto;
@@ -700,7 +710,7 @@ nav.light.scrolled .line-3 {
   color: #fff;
   border-color: #fff;
 }
-@media (min-width: 767px) {
+@media only screen and (min-width: 767px) {
   .header .btn:hover {
     background: #008e8d;
     border-color: #008e8d;
@@ -824,12 +834,16 @@ nav.light.scrolled .line-3 {
   position: relative;
   z-index: 1;
 }
-.story-2 img:hover {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  z-index: 2;
-  opacity: 1;
+
+@media only screen and (min-width: 767px) {
+  .story-2 img:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    z-index: 2;
+    opacity: 1;
+  }
 }
+  
 .story-2 img.fade {
   opacity: .3;
   transform: scale(0.94);
@@ -868,11 +882,15 @@ nav.light.scrolled .line-3 {
     transform: scale(1);
     -webkit-transform: scale(1);
   }
+}
+
+@media only screen and (min-width: 767px) {
   .story-2 img:hover {
     transform: scale(1);
     -webkit-transform: scale(1);
   }
 }
+
 .story-3 h1 {
   margin-bottom: 40px;
 }
@@ -1307,7 +1325,7 @@ input[type="submit"]:focus {
 }
 
 
-@media (min-width: 767px) {
+@media only screen and (min-width: 767px) {
     .input-button-holder:hover {
         background: #008e8d;
         color: #fff;
@@ -1453,10 +1471,14 @@ input[type="submit"]:focus {
   background: none;
   font-size: 23px;
 }
-.rsvp form input[type="submit"]:hover {
-  background: #008e8d;
-  color: #fff;
+
+@media only screen and (min-width: 767px) {
+  .rsvp form input[type="submit"]:hover {
+    background: #008e8d;
+    color: #fff;
+  }
 }
+
 .rsvp.bg-secondary form input[type="text"] {
   background: #fff;
 }
