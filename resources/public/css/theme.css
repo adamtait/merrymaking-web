@@ -379,10 +379,12 @@ a:active {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
 }
-.btn:hover {
-  background: #008e8d;
-  color: #fff;
-}
+@media (min-width: 767px) {
+  .btn:hover {
+    background: #008e8d;
+    color: #fff;
+  }
+} 
 
 .btn-white {
   color: #fff;
@@ -404,6 +406,7 @@ a:active {
 
 .checkbox-btn {
     border: 1px solid #f5f5f5;
+    margin-bottom: 20px;
 }
 
 
@@ -697,9 +700,11 @@ nav.light.scrolled .line-3 {
   color: #fff;
   border-color: #fff;
 }
-.header .btn:hover {
-  background: #008e8d;
-  border-color: #008e8d;
+@media (min-width: 767px) {
+  .header .btn:hover {
+    background: #008e8d;
+    border-color: #008e8d;
+  }
 }
 .burns-effect {
   -webkit-backface-visibility: hidden;
@@ -1286,20 +1291,34 @@ input[type="submit"]:focus {
   overflow: hidden;
   opacity: 0;
 }
+
 .input-button-holder {
   cursor: pointer;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
+  background: #fff;
+  color: #008e8d;
 }
-.input-button-holder:hover,
+
 .input-button-holder.checked {
   background: #008e8d;
   color: #fff;
 }
-.input-button-holder.checked:hover {
-  background: #fff;
-  color: #008e8d;
+
+
+@media (min-width: 767px) {
+    .input-button-holder:hover {
+        background: #008e8d;
+        color: #fff;
+    }
+
+    .input-button-holder.checked:hover {
+        background: #fff;
+        color: #008e8d;
+    }
 }
+
 
 
 /* naked input buttons (with underlines) */
