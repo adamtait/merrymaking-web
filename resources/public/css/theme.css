@@ -414,6 +414,13 @@ a:active {
     margin-bottom: 20px;
 }
 
+
+.uber-btn {
+    background: #008e8d;
+    color: #fff;
+}
+
+
 /*!---------- COLOURS ----------*/
 .bg-secondary {
   background: #fcfcfc;
